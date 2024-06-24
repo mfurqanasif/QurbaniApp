@@ -9,6 +9,13 @@ router.get('/cows', verifyToken, cowController.getAllCows);
 // Get a single cow by ID
 router.get('/cows/:id', verifyToken, cowController.getCowById);
 
+
+// Get  cows by category
+router.get('/cows/category/:category', verifyToken, cowController.getCowByCategory);
+
+// Get  cows by category
+router.get('/cowscategories', verifyToken, cowController.getCowCategories);
+
 // Create a new cow
 router.post('/cows', verifyToken, cowController.createCow);
 

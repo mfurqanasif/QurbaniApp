@@ -33,7 +33,7 @@ exports.createBooking = (req, res) => {
         res.status(500).send(err);
         return;
       }
-
+  const newBookingId = result.insertId;
       updateAllocatedParts(cow_id);
 
       db.query(enableSafeUpdates, (err, result) => {
@@ -41,7 +41,8 @@ exports.createBooking = (req, res) => {
           res.status(500).send(err);
           return;
         }
-        res.status(201).send('Booking created.');
+  //      res.status(201).send('Booking created.');
+	   res.status(201).json({ message: 'Booking created.', bookingId: newBookingId });
       });
     });
   });

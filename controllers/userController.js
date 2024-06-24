@@ -37,7 +37,7 @@ exports.login = (req, res) => {
           expiresIn: 86400 // 24 hours
         });
 
-        res.status(200).send({ auth: true, token: token });
+        res.status(200).send({ auth: true, token: token, name:user.name });
       }
     }
   });
